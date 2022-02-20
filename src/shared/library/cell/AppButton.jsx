@@ -1,13 +1,13 @@
 import React from "react";
 
-function AppButton(props) {
+function AppButton({appButton,onClick}) {
   return (
     <button
-      className={props.appButton.className}
-      id={props.appButton.id}
-      onClick={() => props.onClick(props.appButton)}
+      className={appButton.className}
+      id={appButton.id}
+      onClick={() => onClick(appButton)}
     >
-      {props.appButton.name}
+      {appButton.name}
     </button>
   );
 }

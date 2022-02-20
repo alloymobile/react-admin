@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-function AppIcon(props) {
+function AppIcon({appIcon}) {
   return (
     <FontAwesomeIcon
-      icon={props.appIcon.icon}
-      spin={props.appIcon.spin && props.appIcon.spin}
-      size={props.appIcon.size && props.appIcon.size}
+      icon={appIcon.icon}
+      spin={appIcon.spin && appIcon.spin}
+      size={appIcon.size && appIcon.size}
     />
   );
 }

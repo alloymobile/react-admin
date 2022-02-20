@@ -1,15 +1,15 @@
 import React from "react";
 import AppIcon from "../cell/AppIcon";
 
-function AppIconLink(props) {
+function AppIconLink({appIconLink}) {
   return (
     <a
-      className={props.appIconLink.className}
-      id={props.appIconLink.id}
-      href={props.appIconLink.href}
+      className={appIconLink.className}
+      id={appIconLink.id}
+      href={appIconLink.href}
     >
-      <AppIcon appIcon={props.appIconLink.appIcon} />
-      {props.appIconLink.name && <span className="px-2">{props.appIconLink.name}</span>}
+      <AppIcon appIcon={appIconLink.appIcon} />
+      {appIconLink.name && <span className="px-2">{appIconLink.name}</span>}
     </a>
   );
 }

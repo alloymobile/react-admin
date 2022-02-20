@@ -1,13 +1,13 @@
 import React from "react";
 
-function AppLink(props) {
+function AppLink({appLink}) {
   return (
     <a
-      className={props.appLink.className}
-      id={props.appLink.id}
-      href={props.appLink.href}
+      className={appLink.className}
+      id={appLink.id}
+      href={appLink.href}
     >
-      {props.appLink.name}
+      {appLink.name}
     </a>
   );
 }

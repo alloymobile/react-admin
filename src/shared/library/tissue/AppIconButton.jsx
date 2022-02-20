@@ -1,15 +1,15 @@
 import React from "react";
 import AppIcon from "../cell/AppIcon";
 
-function AppIconButton(props) {
+function AppIconButton({appIconButton,onClick}) {
   return (
     <button
-      className={props.appIconButton.className}
-      id={props.appIconButton.id}
-      onClick={() => props.onClick(props.appIconButton)}
+      className={appIconButton.className}
+      id={appIconButton.id}
+      onClick={() => onClick(appIconButton)}
     >
-      <AppIcon appIcon={props.appIconButton.appIcon} />
-      {props.appIconButton.name && <span className="px-2">{props.appIconButton.name}</span>}
+      <AppIcon appIcon={appIconButton.appIcon} />
+      {appIconButton.name && <span className="px-2">{appIconButton.name}</span>}
     </button>
   );
 }

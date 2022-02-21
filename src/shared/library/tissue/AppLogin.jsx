@@ -22,24 +22,29 @@ function AppLogin() {
     const handleSubmit=(e)=>{
         e.preventDefault();
         setAppIconButton({...appIconButton});
-
+        login().subscribe({
+            next: data => console.log( '[data] => ', data ),
+            complete: data => console.log( '[complete]' ),
+        })
+    }
+    function login(){
+        return Observable.create( ( observer ) => {
+            axios.post( 'https://alloymobile-client-app.azurewebsites.net/v1/clients/signin',{email:'test@gmail.com',password:'test123'} )
+            .then( ( response ) => {
+                observer.next( response.data );
+                observer.complete();
+            } )
+            .catch( ( error ) => {
+                observer.error( error );
+            } );
+        } );
     }
 
-    let observable$ = Observable.create( ( observer ) => {
-        axios.post( 'https://alloymobile-client-app.azurewebsites.net/v1/clients/signin',{email:'test@gmail.com',password:'test123'} )
-        .then( ( response ) => {
-            observer.next( response.data );
-            observer.complete();
-        } )
-        .catch( ( error ) => {
-            observer.error( error );
-        } );
-    } );
 
-    let subscription = observable$.subscribe( {
-        next: data => console.log( '[data] => ', data ),
-        complete: data => console.log( '[complete]' ),
-    } );
+    // let subscription = observable$.subscribe( {
+    //     next: data => console.log( '[data] => ', data ),
+    //     complete: data => console.log( '[complete]' ),
+    // } );
 
     return (
         <div className="d-flex justify-content-center text-center h-100">

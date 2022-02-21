@@ -6,6 +6,7 @@ function AppButton({appButton,onClick}) {
       className={appButton.className}
       id={appButton.id}
       onClick={() => onClick(appButton)}
+      type = {appButton.type &&  appButton.type}
     >
       {appButton.name}
     </button>
